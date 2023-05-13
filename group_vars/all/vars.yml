@@ -21,6 +21,12 @@ aur:
         - ctmg
         - spiped
 
+runtimes_and_sdks:
+  - dotnet-runtime
+  - dotnet-sdk
+  - 
+  - 
+
 yay-apps:
   development:
     - obs-studio
