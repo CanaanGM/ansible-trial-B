@@ -1,0 +1,39 @@
+- name: dotnet
+  community.general.pacman:
+     name:
+      - dotnet-runtime
+      - dotnet-sdk
+     state: present
+
+
+- name: entity framework tools
+  ansible.builtin.shell:
+    cmd: dotnet tool install --global dotnet-ef
+  ignore_errors: true
+  
+
+
+- name: dbeaver
+  ansible.builtin.shell:
+    cmd: yay -S dbeaver --noconfirm
+  ignore_errors: true
+
+- name: postman
+  ansible.builtin.shell:
+    cmd: yay -S postman-bin --noconfirm
+  ignore_errors: true
+  become: False
+
+
+- name: Vscode
+  pacman:
+    name:
+      - code
+    state: present
+
+- name: Obsidian
+  pacman:
+    name:
+      - obsidian
+    state: present
+

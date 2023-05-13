@@ -1,0 +1,15 @@
+# entry point where all other tasks are concatenated.
+- name: Update the System
+  pacman:
+    update_cache: yes
+    upgrade: yes
+    
+
+- include_tasks: user.yml
+- include_tasks: shared/programs/core.yml  # works
+- include_tasks: shared/aur/main.yml # works
+- include_tasks: shared/drivers/wireless_dirvers.yml
+- include_tasks: shared/programs/development.yml
+- include_tasks: shared/programs/weylus.yml # works
+- include_tasks: shared/programs/sec.yml
+- include_tasks: shared/programs/zsh.yml

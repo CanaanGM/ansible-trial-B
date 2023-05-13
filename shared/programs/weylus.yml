@@ -1,0 +1,20 @@
+---
+
+- name: weylus
+  ansible.builtin.shell:
+    cmd: yay -S weylus --noconfirm
+  ignore_errors: true
+  become: False
+
+- name: permit port 1701 for weylus
+  ansible.posix.firewalld:
+    port: 1701/tcp
+    permanent: true
+    state: enabled
+
+- name: permit port 9001 for weylus
+  ansible.posix.firewalld:
+    port: 9001/tcp
+    permanent: true
+    state: enabled
+

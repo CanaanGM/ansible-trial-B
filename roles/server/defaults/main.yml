@@ -1,0 +1,8 @@
+username: mars
+shell: /bin/bash
+password: iIzSecure!
+server_packages:
+  - vim
+  - htop
+  - neofetch
+  - tmux

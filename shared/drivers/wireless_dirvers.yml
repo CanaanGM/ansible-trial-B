@@ -1,0 +1,71 @@
+---
+
+# installs the drivers for Tp-link Archer T4U
+
+- name: Install deps
+  pacman:
+    name:
+      - dkms
+      - bc
+      - linux-headers
+      - iw
+      - rfkill 
+      - mokutil
+      - gcc 
+      - base-devel
+    state: latest
+
+# - name: dkms installtion
+#   ansible.builtin.git:
+#     repo: https://github.com/RinCat/RTL88x2BU-Linux-Driver.git
+#     dest: /usr/src/rtl88x2bu-git
+#     force: True
+
+# - name: Set DKMS conf
+#   ansible.builtin.shell:
+#     cmd: sed -i 's/PACKAGE_VERSION="@PKGVER@"/PACKAGE_VERSION="git"/g' /usr/src/rtl88x2bu-git/dkms.conf
+
+# - name: Install DMKS module
+#   ansible.builtin.shell:
+#     cmd: dkms add -m rtl88x2bu -v git
+
+# - name: Install DMKS module secondus
+#   ansible.builtin.shell:
+#     cmd: dkms autoinstall
+
+
+
+
+- name: Create driver directory if it does not exist
+  ansible.builtin.file:
+    path: /home/{{username}}/src/
+    state: directory
+    mode: '0755'
+
+- name: Clone Driver's Repo into {{username}}'s home
+  ansible.builtin.git:
+    repo: https://github.com/morrownr/88x2bu-20210702.git
+    dest: /home/{{username}}/src/88x2bu-20210702
+    single_branch: yes
+    version: main
+
+# - name: Allow Execution
+#   ansible.builtin.file:
+#     dest: /home/{{username}}/tp-link-driver/install-driver.sh
+#     mode: 'a+x+w'
+
+
+- name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: /home/{{username}}/src/88x2bu-20210702/install-driver.sh
+    owner: '{{ username }}'
+    group: '{{username}}'
+    mode: '0777'
+
+
+# this needs the system to be both updated and restarted!!
+- name: Install the driver
+  ansible.builtin.shell:
+    cmd: /home/{{username}}/src/88x2bu-20210702/install-driver.sh NoPrompt
+  become: True
+  ignore_errors: True

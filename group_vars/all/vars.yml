@@ -1,0 +1,31 @@
+username: mars
+
+shell: /bin/bash
+
+server_packages:
+  - vim
+  - htop
+  - neofetch
+  - tmux
+
+
+use_aur: True
+aur:
+    dir: aur
+    packages:
+        - yay
+        - downgrade
+        - zplug
+        - miller
+        - myrepos
+        - ctmg
+        - spiped
+
+yay-apps:
+  development:
+    - obs-studio
+    - postman-bin
+    - dbeaver
+  normal:
+    - audacity
+    - zoom

@@ -1,0 +1,10 @@
+[homeserver]
+192.168.111.129
+
+[homeserver:vars]
+ansible_user=mars
+ansible_connection=ssh
+ansible_ssh_private_key_file=/home/titan/.ssh/arch-vm
+
+;[localhost]
+;localhost   ansible_connection=local

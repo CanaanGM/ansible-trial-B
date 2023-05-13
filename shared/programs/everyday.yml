@@ -1,0 +1,48 @@
+- name: install Brave
+  community.general.pacman:
+   name: 
+    - brave
+   state: present 
+
+- name: Thunderbird
+  community.general.pacman:
+   name: 
+    - thunderbird
+   state: present 
+
+- name: communication
+  community.general.pacman:
+   name: 
+    - discord
+   state: present 
+
+- name: zoom
+  ansible.builtin.shell:
+    cmd: yay -S zoom --noconfirm
+  ignore_errors: true
+
+- name: audacity
+  ansible.builtin.shell:
+    cmd: yay -S audacity --noconfirm
+  ignore_errors: true
+
+- name: iriun webcam
+# sudo rmmod v4l2loopback; sudo modprobe v4l2loopback exclusive_caps=1
+  ansible.builtin.shell:
+    cmd: yay -S iriunwebcam-bin  --noconfirm
+  ignore_errors: true
+
+
+- name: Qbit Torrent
+  community.general.pacman:
+   name: 
+    - qbittorrent
+   state: present 
+
+- name: Thunderbird
+  community.general.pacman:
+   name: 
+    - thunderbird
+   state: present 
+
+# later on copy the profile

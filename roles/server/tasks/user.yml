@@ -1,0 +1,30 @@
+- name: make sure all needed groups are there
+  group:
+    name: "{{ item }}"
+  loop:
+    - docker
+    - samba
+    - uinput
+    - "{{ username }}"
+
+
+- name: Create user
+  user:
+    name: "{{ username }}"
+    password: "{{ password | password_hash('sha512') }}"
+    groups: 
+      - sudo
+      - docker
+      - uinput
+      - users
+    append: yes
+    shell: "{{ shell }}"
+    update_password: on_create
+
+
+- name: Enable passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    regexp: "^%wheel"
+    line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
+    validate: "/usr/sbin/visudo -cf %s"

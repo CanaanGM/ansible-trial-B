@@ -1,0 +1,11 @@
+- name : Update System
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install essntial things
+  package:
+    name: "{{ server_packages }}"
+    state: latest
+
+
