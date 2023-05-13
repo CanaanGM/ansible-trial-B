@@ -1,0 +1,1 @@
+to install from a PC onto itself, make the `hosts` -> `localhost`
