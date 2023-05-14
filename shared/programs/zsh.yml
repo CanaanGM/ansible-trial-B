@@ -8,11 +8,6 @@
     - zsh-syntax-highlighting
    state: present
 
-- name: install fzf for zsh
-  community.general.pacman:
-   name: 
-    - fzf
-   state: present
 
 
 - name: change "{{ username }}"'s shell to zsh
@@ -20,6 +15,27 @@
   user:
    name: "{{ username }}"
    shell: /usr/bin/zsh
+
+
+- name: Install OhMyZsh
+  become: yes
+  shell:
+   cmd: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
+- name: Install ohmyzsh autoSuggestion
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+
+- name: Install ohmyzsh Syntax highliting
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+
+
+
 
 # - name: copy zsh dotfile
 #   copy: 
@@ -31,15 +47,15 @@
 #    mode: u+rw,g+r,o--
 
 
-- name: clone oh-my-zsh for users
-  tags:
-    # Suppress warning: [ANSIBLE0006] git used in place of git module
-    # Git module doesn't allow us to set `core.autocrlf=input`.
-    - skip_ansible_lint
-  become: yes
-  become_user: '{{ username }}'
-  # core.autocrlf=input prevents https://github.com/robbyrussell/oh-my-zsh/issues/4402
-  command: 'git clone -c core.autocrlf=input https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh'
-  args:
-    chdir: '~{{ username }}'
-    creates: '~{{ username }}/.oh-my-zsh'
+# - name: clone oh-my-zsh for users
+#   tags:
+#     # Suppress warning: [ANSIBLE0006] git used in place of git module
+#     # Git module doesn't allow us to set `core.autocrlf=input`.
+#     - skip_ansible_lint
+#   become: yes
+#   become_user: '{{ username }}'
+#   # core.autocrlf=input prevents https://github.com/robbyrussell/oh-my-zsh/issues/4402
+#   command: 'git clone -c core.autocrlf=input https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh'
+#   args:
+#     chdir: '~{{ username }}'
+#     creates: '~{{ username }}/.oh-my-zsh'

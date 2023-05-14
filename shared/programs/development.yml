@@ -1,9 +1,26 @@
+---
+
 - name: dotnet
   community.general.pacman:
      name:
       - dotnet-runtime
       - dotnet-sdk
      state: present
+
+- name: node
+  community.general.pacman:
+     name:
+      - nodejs
+      - npm
+     state: present
+
+- name: install n
+  npm: 
+    name: n
+    global: true
+
+- name: Node 14
+  shell: n 14
 
 
 - name: entity framework tools
