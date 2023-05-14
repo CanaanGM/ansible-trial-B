@@ -4,13 +4,22 @@
     - brave
    state: present 
 
-- name: Thunderbird
+- name: Mail client and Password manager
   community.general.pacman:
    name: 
     - thunderbird
+    - bitwarden
    state: present 
 
-- name: communication
+
+- name: Qbit Torrent
+  community.general.pacman:
+   name: 
+    - qbittorrent
+   state: present 
+
+
+- name: Discord
   community.general.pacman:
    name: 
     - discord
@@ -32,17 +41,5 @@
     cmd: yay -S iriunwebcam-bin  --noconfirm
   ignore_errors: true
 
-
-- name: Qbit Torrent
-  community.general.pacman:
-   name: 
-    - qbittorrent
-   state: present 
-
-- name: Thunderbird
-  community.general.pacman:
-   name: 
-    - thunderbird
-   state: present 
 
 # later on copy the profile

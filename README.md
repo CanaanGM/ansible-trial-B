@@ -4,3 +4,8 @@
 ## TODO
 - [ ] make it distro agnostic
 - [ ] loops, spin 2 win
+
+
+## Gamemode
+ > https://github.com/FeralInteractive/gamemode#gamemode
+

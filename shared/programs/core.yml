@@ -39,3 +39,9 @@
       - wget
       - httpie
     state: present
+
+- name: Install microcode
+  pacman:
+    name:
+      - intel-ucode
+    state: present

@@ -11,5 +11,7 @@
 - include_tasks: shared/drivers/wireless_dirvers.yml
 - include_tasks: shared/programs/development.yml
 - include_tasks: shared/programs/weylus.yml # works
+- include_tasks: shared/programs/games.yml # works
+- include_tasks: shared/programs/art.yml # works
 - include_tasks: shared/programs/sec.yml
 - include_tasks: shared/programs/zsh.yml

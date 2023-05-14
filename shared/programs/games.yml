@@ -1,0 +1,81 @@
+
+
+- name: Nvidia Drivers
+  community.general.pacman:
+   name: 
+    - nvidia-dkms
+    - nvidia-utils 
+    - lib32-nvidia-utils  
+    - nvidia-settings  
+    - vulkan-icd-loader  
+    - lib32-vulkan-icd-loader
+   state: present 
+
+
+- name: steam
+  community.general.pacman:
+   name: 
+    - steam
+   state: present 
+
+
+# need to un commment `multilib` in pacman.conf but in endevour its already done.
+- name: Wine and it's Deps
+  community.general.pacman:
+   name: 
+    - wine-staging 
+    - giflib  
+    - lib32-giflib  
+    - libpng  
+    - lib32-libpng  
+    - libldap  
+    - lib32-libldap  
+    - gnutls  
+    - lib32-gnutls 
+    - mpg123  
+    - openal   
+    - lib32-openal  
+    - v4l-utils  
+    - lib32-v4l-utils  
+    - libpulse   
+    - lib32-libpulse   
+    - libgpg-error   
+    - sqlite   
+    - lib32-sqlite   
+    - libxcomposite   
+    - lib32-libxcomposite   
+    - libxinerama   
+    - lib32-libgcrypt   
+    - libgcrypt   
+    - lib32-libxinerama   
+    - ncurses   
+    - lib32-ncurses   
+    - ocl-icd   
+    - lib32-ocl-icd   
+    - libxslt   
+    - lib32-libxslt   
+    - libva   
+    - lib32-libva    
+    - gtk3    
+    - lib32-gtk3    
+    - gst-plugins-base-libs    
+    - lib32-gst-plugins-base-libs    
+    - vulkan-icd-loader     
+    - lib32-vulkan-icd-loader   
+   state: present 
+
+- name: lutris
+  community.general.pacman:
+   name: 
+    - lutris
+   state: present
+
+
+- name: Feral Gamemode
+  community.general.pacman:
+   name: 
+    - gamemode
+    - lib32-gamemode
+   state: present 
+
+

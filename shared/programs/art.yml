@@ -1,0 +1,5 @@
+- name: krita
+  community.general.pacman:
+   name: 
+    - krita
+   state: present 

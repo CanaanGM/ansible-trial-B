@@ -1,0 +1,11 @@
+---
+
+- name: Enable SSH
+  service:
+    name : sshd
+    state: enabled
+
+- name: Enable bluetooth
+  service:
+    name : bluetooth
+    state: enabled
