@@ -111,9 +111,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias update="sudo pacman -Syuu --noconfirm"
 
-eval "$(ssh-agent -s)" 1> /dev/null 2> /dev/null
-ssh-add ~/.ssh/git-arch-canaan 1> /dev/null 2>/dev/null
-
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
