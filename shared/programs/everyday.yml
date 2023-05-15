@@ -8,6 +8,7 @@
     - qbittorrent
     - discord
     - brave
+    - fireshot
    state: present 
 
 

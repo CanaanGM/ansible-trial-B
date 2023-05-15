@@ -22,6 +22,12 @@
 - name: Node 14
   shell: n 14
 
+- name: Install Angular.js
+  npm:
+    name: "@angular/cli@15"
+    global: yes
+    state: present
+
 
 - name: entity framework tools
   ansible.builtin.shell:
@@ -49,3 +55,15 @@
       - code
     state: present
 
+
+- name: Pyenv
+  ansible.builtin.git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: ~/.pyenv
+    single_branch: yes
+    version: master
+
+
+- name: Rust
+  shell:
+    cmd: curl https://sh.rustup.rs -sSf | sh

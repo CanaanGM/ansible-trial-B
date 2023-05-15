@@ -5,6 +5,7 @@
       - ghidra
       - wireshark
       - nmap
+      - tor
     state: latest
 
 
