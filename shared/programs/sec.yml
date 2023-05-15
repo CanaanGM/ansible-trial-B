@@ -1,19 +1,10 @@
-- name: John the ripper
+- name: Security Tools
   pacman:
     name:
-      john
-    state: latest
-
-- name: Hash cat
-  pacman:
-    name:
-      hashcat
-    state: latest
-
-- name: ghidra
-  pacman:
-    name:
-      ghidra
+      - john
+      - ghidra
+      - wireshark
+      - nmap
     state: latest
 
 

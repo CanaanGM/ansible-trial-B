@@ -42,15 +42,10 @@
   become: False
 
 
-- name: Vscode
-  pacman:
-    name:
-      - code
-    state: present
-
-- name: Obsidian
+- name: Obsidian, Vscode
   pacman:
     name:
       - obsidian
+      - code
     state: present
 

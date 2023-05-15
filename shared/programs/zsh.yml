@@ -34,17 +34,14 @@
     dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 
-
-
-
-# - name: copy zsh dotfile
-#   copy: 
-#    src: user_home/.zshrc 
-#    dest: /home/{{ username }}/.zshrc
-#    force: False
-#    owner: "{{ username }}"
-#    group: "{{ username }}"
-#    mode: u+rw,g+r,o--
+- name: copy zsh dotfile
+  copy: 
+   src: dotfiles/.zshrc 
+   dest: /home/{{ username }}/.zshrc
+   force: False
+   owner: "{{ username }}"
+   group: "{{ username }}"
+   mode: u+rw,g+r,o--
 
 
 # - name: clone oh-my-zsh for users

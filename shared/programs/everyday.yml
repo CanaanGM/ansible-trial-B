@@ -1,29 +1,15 @@
-- name: install Brave
-  community.general.pacman:
-   name: 
-    - brave
-   state: present 
+---
 
-- name: Mail client and Password manager
+- name: Day 2 Day programs
   community.general.pacman:
    name: 
     - thunderbird
     - bitwarden
-   state: present 
-
-
-- name: Qbit Torrent
-  community.general.pacman:
-   name: 
     - qbittorrent
-   state: present 
-
-
-- name: Discord
-  community.general.pacman:
-   name: 
     - discord
+    - brave
    state: present 
+
 
 - name: zoom
   ansible.builtin.shell:
