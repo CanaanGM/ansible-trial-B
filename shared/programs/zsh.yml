@@ -38,7 +38,7 @@
   copy: 
    src: dotfiles/.zshrc 
    dest: /home/{{ username }}/.zshrc
-   force: False
+   force: True
    owner: "{{ username }}"
    group: "{{ username }}"
    mode: u+rw,g+r,o--
